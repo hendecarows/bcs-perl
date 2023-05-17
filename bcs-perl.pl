@@ -124,7 +124,12 @@ exit;
 sub initCard
 {
 	my ($context,$hide_nocarderr) = @_;
-	
+
+	if($selected_reader eq 'no sc reader'){
+		my @readers = $context->ListReaders();
+		$selected_reader = $readers[0] if defined $readers[0];
+	}
+
 	my $card = new Chipcard::PCSC::Card (
 		$context,
 		$selected_reader,
