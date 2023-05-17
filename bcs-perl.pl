@@ -18,12 +18,11 @@ use IO::Select;
 #configure section
 
 #selected SC reader
-#my $selected_reader = 'SCM SCR 3310 NTTCom 00 00';
-my $selected_reader = 'SCM SCR 3310 NTTCom [Vendor Interface] (21120651345180) 00 00';
+my $selected_reader = (exists $ENV{BCSPL_READER} ? $ENV{BCSPL_READER} : 'no sc reader');
 #listen port
-my $listen_port     = 6900;
+my $listen_port     = (exists $ENV{BCSPL_PORT} ? $ENV{BCSPL_PORT} : 6900);
 #bind address
-my $bind_addr       = '0.0.0.0';
+my $bind_addr       = (exists $ENV{BCSPL_ADDR} ? $ENV{BCSPL_ADDR} : '0.0.0.0');
 
 #############
 #code section
